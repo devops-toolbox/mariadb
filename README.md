@@ -8,10 +8,10 @@ mariadb: Mariadb
 Ansible galaxy:
 ---------------
 
-[https://galaxy.ansible.com/devops-toolbox.mariadb](https://galaxy.ansible.com/devops-toolbox.mariadb)
+[https://galaxy.ansible.com/devopstoolbox.mariadb](https://galaxy.ansible.com/devopstoolbox.mariadb)
 
 ```bash
-ansible-galaxy install devops-toolbox.mariadb
+ansible-galaxy install devopstoolbox.mariadb
 ```
 
 Requirements
@@ -60,7 +60,7 @@ Example Playbook
   tasks:
     - name: mariadb is configured
       import_role:
-        name: devops-toolbox.mariadb
+        name: devopstoolbox.mariadb
       vars:
         mariadb_packages_state: present
         mariadb_remove_packages: true
@@ -89,4 +89,4 @@ MIT
 Author Information
 ------------------
 
-- [Mihai Criveti](https://www.linkedin.com/in/devops-toolbox.)
+- [Mihai Criveti](https://www.linkedin.com/in/devopstoolbox.)
