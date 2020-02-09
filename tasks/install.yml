@@ -1,0 +1,27 @@
+---
+# Install mariadb packages
+
+- name: unwanted packages are removed
+  package:
+    name: "{{ mariadb_packages_remove }}"
+    state: absent
+  become: true
+  when: mariadb_remove_packages
+
+- name: prereq repositories are installed
+  package:
+    name: "{{ mariadb_packages_repos }}"
+    state: "{{ mariadb_packages_state }}"
+  become: true
+
+- name: prereq packages are installed
+  package:
+    name: "{{ mariadb_packages_prereq }}"
+    state: "{{ mariadb_packages_state }}"
+  become: true
+
+- name: packages are installed
+  package:
+    name: "{{ mariadb_packages_install }}"
+    state: "{{ mariadb_packages_state }}"
+  become: true

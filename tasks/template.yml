@@ -1,0 +1,10 @@
+---
+# Template configuration files for mariadb
+
+- name: template is copied
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+  become: true
+  loop: "{{ mariadb_templates_copy }}"
+  when: mariadb_copy_templates

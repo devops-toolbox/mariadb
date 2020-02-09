@@ -1,0 +1,19 @@
+---
+# defaults file for mariadb
+
+mariadb_packages_state: present
+mariadb_remove_packages: true
+mariadb_enable_service: true
+mariadb_enable_selinux: true
+mariadb_copy_templates: true
+mariadb_firewall_configure: true
+mariadb_firewall_rules:
+  - service: ssh
+  - port: 3389
+mariadb_users:
+  - user: devops
+    group: docker
+mariadb_selinux_booleans:
+  - name: ftp_home_dir
+    state: true
+    persistent: true

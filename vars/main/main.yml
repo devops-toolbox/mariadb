@@ -1,0 +1,44 @@
+---
+# vars file for packages
+
+# Detected OS
+my_os: "{{ ansible_distribution }}_{{ ansible_distribution_major_version }}"
+
+# Repos create
+mariadb_repos_create: "{{ _mariadb_repos_create['all']
+  | union ( _mariadb_repos_create[my_os]
+  | default([]) ) }}"
+
+# Repos download
+mariadb_repos_download: "{{ _mariadb_repos_download['all']
+  | union ( _mariadb_repos_download[my_os]
+  | default([]) ) }}"
+
+# Templates Copy
+mariadb_templates_copy: "{{ _mariadb_templates_copy['all']
+  | union ( _mariadb_templates_copy[my_os]
+  | default([]) ) }}"
+
+# Services Enable
+mariadb_services_enable: "{{ _mariadb_services_enable['all']
+  | union ( _mariadb_services_enable[my_os]
+  | default([]) ) }}"
+
+# SELinux Enable
+mariadb_selinux_enable: "{{ _mariadb_selinux_enable['all']
+  | union ( _mariadb_selinux_enable[my_os]
+  | default([]) ) }}"
+
+# Packages lists
+mariadb_packages_remove: "{{ _mariadb_packages_remove['all']
+  | union ( _mariadb_packages_remove[my_os]
+  | default([]) ) }}"
+mariadb_packages_repos: "{{ _mariadb_packages_repos['all']
+  | union ( _mariadb_packages_repos[my_os]
+  | default([]) ) }}"
+mariadb_packages_prereq: "{{ _mariadb_packages_prereq['all']
+  | union ( _mariadb_packages_prereq[my_os]
+  | default([]) ) }}"
+mariadb_packages_install: "{{ _mariadb_packages_install['all']
+  | union ( _mariadb_packages_install[my_os]
+  | default([]) ) }}"
